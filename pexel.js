@@ -10,7 +10,7 @@ loadImg.addEventListener("click", function(){
     fetch(imgQ,{
          method: "GET",
          headers:{
-            "Content-Type": "application/json"
+             "Content-Type": "application/json"
              "Authorization": "KSFyYnaPgQBIXjoVAY2L1vPFUz7MEWfDcwVuyYMQsAKa501vYnSyuMmE"
             }
     })
@@ -66,4 +66,23 @@ loadSecImg.addEventListener("click", function(){
     })
 })
 
+const hideImg = document.getElementById("hide_btn")  
+ function () {
+    console.log("provo a nascondere l'immagine")
+    fetch(imgQ + '/' + Id, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (response.ok) {
+          // ELIMINAZIONE AVVENUTA CON SUCCESSO
+          alert("foto eliminata!")
+        
+        } else {
+          throw new Error("Errore nell'eliminazione dell")
+        }
+      })
+      .catch((error) => {
+        console.log('error', error)
+      })
+  }
 

@@ -66,22 +66,16 @@ loadSecImg.addEventListener("click", function(){
     })
 })
 
-const hideImg = document.getElementById("hide_btn")  
- hideImg.addEventListener ("click", function () {
-    console.log("provo a nascondere l'immagine")
-    fetch(imgQ || secImg + '/' + Id, {
-      method: 'DELETE',
-    })
-      .then((response) => {
-        if (response.ok) {
-          
-          alert("foto eliminata!")
-        
-        } else {
-          throw new Error("Errore nell'eliminazione della card")
-        }
-      })
-      .catch((error) => {
-        console.log('error', error)
-      })
+const hideImg = document.getElementsByClassName("hide_btn")  
+const card = getElementsByClassName("card_box")
+hideImg.forEach(button => {
+     button.addEventListener ("click", function () {
+    
+    
+    if (card){
+        card.style.display = "none"
+    }
+      console.log("provo a nascondere l'immagine")
   })
+})
+   

@@ -10,8 +10,8 @@ loadImg.addEventListener("click", function(){
     fetch(imgQ,{
          method: "GET",
          headers:{
-             "Content-Type": "application/json"
-             "Authorization": "KSFyYnaPgQBIXjoVAY2L1vPFUz7MEWfDcwVuyYMQsAKa501vYnSyuMmE"
+             "Content-Type":"application/json",
+             "Authorization":"KSFyYnaPgQBIXjoVAY2L1vPFUz7MEWfDcwVuyYMQsAKa501vYnSyuMmE"
             }
     })
     .then((response) => {
@@ -23,7 +23,7 @@ loadImg.addEventListener("click", function(){
      })
     .then((data) => {
         console.log(data)
-        let images= document.getElementsByClassName("cart-img-top")
+        let images= document.getElementsByClassName("card-img-top")
           
         const imgArr = Array.from(images)
         for (let i = 0; i < imgArr.length; i++) {
@@ -41,8 +41,8 @@ loadSecImg.addEventListener("click", function(){
     fetch(secImg,{
          method: "GET",
          headers:{
-            "Content-Type": "application/json"
-             "Authorization": "KSFyYnaPgQBIXjoVAY2L1vPFUz7MEWfDcwVuyYMQsAKa501vYnSyuMmE"
+            "Content-Type":"application/json",
+             "Authorization":"KSFyYnaPgQBIXjoVAY2L1vPFUz7MEWfDcwVuyYMQsAKa501vYnSyuMmE"
             }
     })
     .then((response) => {
@@ -54,7 +54,7 @@ loadSecImg.addEventListener("click", function(){
      })
      .then((data) => {
         console.log(data)
-        let images= document.getElementsByClassName("cart-img-top")
+        let images= document.getElementsByClassName("card-img-top")
           
         const imgArr = Array.from(images)
         for (let i = 0; i < imgArr.length; i++) {
@@ -67,22 +67,21 @@ loadSecImg.addEventListener("click", function(){
 })
 
 const hideImg = document.getElementById("hide_btn")  
- function () {
+ hideImg.addEventListener ("click", function () {
     console.log("provo a nascondere l'immagine")
-    fetch(imgQ + '/' + Id, {
+    fetch(imgQ || secImg + '/' + Id, {
       method: 'DELETE',
     })
       .then((response) => {
         if (response.ok) {
-          // ELIMINAZIONE AVVENUTA CON SUCCESSO
+          
           alert("foto eliminata!")
         
         } else {
-          throw new Error("Errore nell'eliminazione dell")
+          throw new Error("Errore nell'eliminazione della card")
         }
       })
       .catch((error) => {
         console.log('error', error)
       })
-  }
-
+  })
